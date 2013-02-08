@@ -8,7 +8,6 @@
 #include "employee.h"
 
 
-
 void check(int x);
 
 void message();
@@ -60,6 +59,11 @@ int main()
     printEmployee(john);
     printEmployee(mike);
 
+    printf("\n------- Part 3 ------\n\n");
+
+    Employee* misu;
+
+    misu=manually_create();  // create misu manually;
 
     printf("Ending program stest.\n");
     return 0;

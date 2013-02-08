@@ -33,7 +33,7 @@ void printEmployee(Employee *employee);
  */
 void outputEmployee(FILE *stream, Employee *employee);
 
-/** creates a new employee structure and fills
+/** creates a new employee structure and fills it
  * @param s - the salary of the employee
  * @param n - pointer to the name of the employee
  * @param dep - pointer to the name of the department
@@ -42,5 +42,10 @@ void outputEmployee(FILE *stream, Employee *employee);
 
 Employee* make_employee(int s, char* n, char* dep);
 
+/** creates a new employee structure and fills it with data introduced from keyboard
+ * @param emp - the pointer of the employee to be created
+ */
+
+ Employee* manually_create();
 
 #endif

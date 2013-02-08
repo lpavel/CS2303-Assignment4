@@ -6,7 +6,6 @@
 #include <string.h>
 #include "employee.h"
 
-
 void printEmployee(Employee *employee)
 {
   fprintf(stdout, "Employee. Name = %s, Salary = %d, Department = %s\n",
@@ -41,4 +40,26 @@ Employee* make_employee(int s, char* n, char* dep)
     emp->department = strdup(dep); // make a dynamic copy of department
 
     return emp;     //return pointer to the new created employee
+}
+
+
+Employee* manually_create()
+{
+    Employee* emp=(Employee*) malloc(sizeof(Employee));
+    char *inputline;
+
+    printf("\nintroduce name: ");
+    inputline=readline(inputline,100);
+    emp->name=inputline;   //reads the name
+    printf("%s\n",emp->name);
+
+    printf("\nintroduce salary: ");
+    inputline=readline(inputline);
+    sscanf(inputline,"%d",emp->salary); //converts the salary into an int
+
+    printf("\nintroduce department: ");
+    inputline=readline(inputline);    // reads the salary
+    emp->department=inputline;
+
+    return emp;
 }
