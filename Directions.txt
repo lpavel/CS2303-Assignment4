@@ -1,0 +1,56 @@
+In this Section you will be creating several functions. Before you try to write the code for each function, decide how it is supposed to operate, then write the header comments. Only then should you write the function. Remember, the purpose of writing the header comments first is so that you consciously make policy and design decisions before writing the code, rather than unconsciously while coding.
+ 
+Part 1
+ 
+Separate the stest.c file into three files: a c file for the main program, a second c file for all the functions, and a header file to hold the struct definition and the function headers. Be sure to use guards in the header file to protect against including the file twice.
+ 
+Modify your makefile to work with these new files.
+ 
+Part 2
+ 
+Modify the Employee struct so it also has a field for holding a pointer to the department (a dynamically-allocated C-style string).
+ 
+Create a function which accepts as parameters all the data needed for an Employee struct, then dynamically allocates the struct, fills in the data, and returns a pointer to the new struct. Note: You do not know which part of memory the string parameters are stored in, so be sure to use strdup() to make a copy of each one, and store the pointer to the new string into the struct.
+ 
+Modify the main program to use your new function to create two new employees, print them, and write them to the file, in addition to what you are already doing with harry and bluejay.
+ 
+Part 3
+ 
+Create a function which prompts the user (by using printf() OR readline() as appropriate) to enter an employee’s name, salary, and department, then allocates an Employee structure and puts the data into it (using the function you wrote for Part 2). The function should ask the user for each of these pieces of data on a separate line with a separate prompt. If the user enters an invalid salary (e.g. < zero, or not a string of digits), the function should prompt the user to try again. This implies that you will need to use readline() and sscanf() instead of scanf().
+ 
+Hints: Be sure that, if you use any dynamically-allocated memory which is only needed inside this function, you free it on exit. Use the function you created for Part 2. Again: ask for each piece of data on a separate line; do not try to parse all three pieces from a single input line.
+ 
+Create a new, separate main program. This will ask the user how many employees there are, then instantiate an array of the appropriate size. Then prompt the user to enter that number of employees, and store pointers to the employee data in the array. After entry is complete, print the data and write it to a text file. Be sure to include all the fields in the struct. Do not call the file “stest.txt”; we already have a file with that name! In the file, put each piece of data on a separate line. You will need a new function for this, too.
+ 
+At the end of the program, free the memory used by the array, each of the structures it points to, and any dynamically-allocated data inside each structure. A function would be very handy here.
+ 
+Use appropriate C-style casting.
+ 
+Modify your makefile to also compile and link the new program.
+ 
+Part 4
+ 
+Create a function which reads one employee from a text file (in the format written by Part 3). Write a new, separate main program which reads all the employees and stores them using an array. After input is complete, it then prints them out. For this assignment, it is permissible to have a maximum number of employees (make it a symbolic constant). However, you have to handle any number of employees in the file up to that maximum, and output an error message (to stderr) if the file is too big.
+ 
+Modify your makefile to also compile and link the new program. Be sure to test that you can create a file using one program and read it with the other.
+ 
+Part 5                                                                                                          
+ 
+Create another version of the function from Section A, which stores the employees in a binary file with a fixed number of bytes for each employee. By a “binary” file I mean one that is read and written with the low-level I/O functions, e.g., open() instead of fopen(), write() instead of printf().
+ 
+It is acceptable to have a maximum length for the employee name. Hint: Create a new structure to hold each employee with all the data inside the structure (i.e. no pointers). Be sure the data file name is different from the one in Part A.
+ 
+Note: Don’t forget that the number of characters in the name of a particular employee might be less than or equal to the maximum. You need to decide how to fill the unused bytes in the file. In Part 6 below, you will also need to decide how to ensure that, when you read from the file, you move the right number of characters into the string.
+ 
+Note: You might want to use the memcpy() function.
+ 
+Part 6
+ 
+Create yet another program similar to the one you wrote for Section B, Part 4, but which uses the binary file from Part 5 as its input. Be sure to test thoroughly that you can read and write these binary files.
+ 
+Part 7
+ 
+Submit your Section B assignment using myWPI. Submit it as a single ZIP or TAR file containing the following files:
+1        All the source files, including header files.
+2        The makefile.
+3        A plain text file called readme.txt which contains your name, a brief description of what each program does, and instructions on how to compile and link it. Since there will be several main programs, be sure to indicate which is which.
