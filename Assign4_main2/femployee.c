@@ -4,10 +4,10 @@
 
 #include<stdio.h>
 #include <string.h>
-#include <readline/readline.h>
-#include <readline/history.h>
-#include <curses.h>
-#include <term.h>
+//#include <readline/readline.h>
+//#include <readline/history.h>
+//#include <curses.h>
+//#include <term.h>
 
 #include "employee.h"
 
@@ -47,7 +47,7 @@ Employee* make_employee(int s, char* n, char* dep)
     return emp;     //return pointer to the new created employee
 }
 
-
+/*
 Employee* manually_create()
 {
     Employee* emp=(Employee*) malloc(sizeof(Employee));
@@ -72,18 +72,19 @@ Employee* manually_create()
     free(inputline); // free readline memory
     return emp;
 }
-
-void f_create(FILE* f, Employee emp)
+*/
+void f_create(FILE* f, Employee* emp)
 {
-    char* m;
+    char m[20];
     fgets(m, 20, f);  // get the line as char maximum 20 chars
-    emp.name = strdup(m); // dynamic copy into name
+    emp->name = strdup(m); // dynamic copy into name
 
     fgets(m, 20, f);   // get the line as char
-    sscanf(inputline,"%d",&emp->salary); //converts the salary into an int
+    sscanf(m,"%d",&emp->salary); //converts the salary into an int
 
 
     fgets(m, 20, f);  // get the line as char maximum 20 chars
-    emp.department = strdup(m);
+    emp->department = strdup(m); // dynamic copy into department
 
 }
+

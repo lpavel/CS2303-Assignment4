@@ -1,0 +1,15 @@
+Employee. Name = AAA
+, Salary = 20, Department = DDD1
+
+Employee. Name = BBB
+, Salary = 15, Department = DDD2
+
+Employee. Name = CCC
+, Salary = 20, Department = DDD3
+
+Employee. Name = EEE
+, Salary = 23, Department = DDD2
+
+Employee. Name = FFF
+, Salary = 23423, Department = DDD1
+

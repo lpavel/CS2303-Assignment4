@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1360365427 source:c:\github\assig4\cs2303-assignment4\assign4_main2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"employee.h"
+
+1360365508 c:\github\assig4\cs2303-assignment4\assign4_main2\employee.h
+
+1360360035 source:c:\github\assig4\cs2303-assignment4\assign4_main2\femployee.c
+	<stdio.h>
+	<string.h>
+	"employee.h"
+
