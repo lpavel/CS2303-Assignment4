@@ -1,9 +1,14 @@
-/** employee.h
+/** employee.c
  * @author Laurentiu Pavel
  */
 
 #include<stdio.h>
 #include <string.h>
+#include <readline/readline.h>
+#include <readline/history.h>
+#include <curses.h>
+#include <term.h>
+
 #include "employee.h"
 
 void printEmployee(Employee *employee)
@@ -48,18 +53,22 @@ Employee* manually_create()
     Employee* emp=(Employee*) malloc(sizeof(Employee));
     char *inputline;
 
-    printf("\nintroduce name: ");
-    inputline=readline(inputline,100);
-    emp->name=inputline;   //reads the name
-    printf("%s\n",emp->name);
+    inputline=readline("introduce a name: "); // read the name
+    emp->name=strdup(inputline);   // create the name the name
 
-    printf("\nintroduce salary: ");
-    inputline=readline(inputline);
-    sscanf(inputline,"%d",emp->salary); //converts the salary into an int
+    for( ; ; )
+    {
+      inputline=readline("introduce salary: ");  // reads the salary
+      sscanf(inputline,"%d",&emp->salary); //converts the salary into an int
+      if( emp->salary < 0 )
+	printf("Wrong salary added. Try again\n");
+      else
+	break;
+    }
 
-    printf("\nintroduce department: ");
-    inputline=readline(inputline);    // reads the salary
-    emp->department=inputline;
+    inputline=readline("introduce department: ");    // reads the salary
+    emp->department=strdup(inputline); // creates employee's department
 
+    free(inputline); // free readline memory
     return emp;
 }

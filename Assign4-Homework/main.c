@@ -7,9 +7,6 @@
 
 #include "employee.h"
 
-
-void check(int x);
-
 void message();
 
 
@@ -33,7 +30,7 @@ int main()
 
     //  Output the employees to a file.
     printf("About to write to file.\n");
-/*    FILE *outfile = fopen("stest.txt", "w"); // Open or create file for writing
+    FILE *outfile = fopen("stest.txt", "w"); // Open or create file for writing
 
     if( outfile==NULL )    // if stream is not created
     {
@@ -48,7 +45,7 @@ int main()
 
 
     message();
-*/
+
 
     printf("\n----- Part 2 -----\n\n");
 

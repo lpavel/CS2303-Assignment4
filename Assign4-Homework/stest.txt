@@ -1,0 +1,2 @@
+Employee. Name = Harry Palmer, Salary = 5000, Department = poor people
+Employee. Name = Erik Grantby, Salary = 10000, Department = rich people
