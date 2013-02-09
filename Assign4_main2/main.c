@@ -19,24 +19,24 @@ int main()
     }
 
     // offer MAXARRAY spaces for emp
-    Employee *emp = (Employee*) malloc(MAXARRAY*sizeof(Employee));
+    Employee *emp = (Employee*) malloc( ( MAXARRAY+1 )*sizeof(Employee));
 
     int i;
-    for(i=0; i<MAXARRAY ; i++)
+    for(i=0; !feof(infile) ; i++)
     {
         f_create(infile, (emp+i));  // read from file
-        if( feof(infile) && i<MAXARRAY )   // if we reach the end too soon
+
+        if(i==MAXARRAY+1)
         {
-            fprintf(stderr," in stest2 the file is too small \n");
+            fprintf(stderr,"in stest2- the file is too big \n");
             break;
         }
     }
 
-    char* m; fgets(m,20,infile);
-    if( m == eof(infile) )      // check how the input file is
-        fprintf(stderr,"in stest2- the file is too big \n");
-    else
-        fprintf(stderr,"in stest2- the file is too big \n");
+   if(i<=MAXARRAY)
+   {
+       fprintf(stderr,"in stest2 - the file is too small \n");
+   }
 
     fclose(infile);  // close the input file
 
